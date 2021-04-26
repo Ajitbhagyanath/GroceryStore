@@ -1,6 +1,5 @@
 using GroceryStoreAPI.Domain.Model;
 using GroceryStoreAPI.Domain.Repositories;
-using Microsoft.Extensions.Logging;
 
 namespace GroceryStoreAPI.Persistence
 {

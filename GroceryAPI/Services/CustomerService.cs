@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using GroceryStoreAPI.Domain.Model;
 using GroceryStoreAPI.Domain.Repositories;
 using GroceryStoreAPI.Domain.Services;

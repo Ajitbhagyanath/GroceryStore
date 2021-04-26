@@ -4,7 +4,6 @@ using Moq;
 using GroceryStoreAPI.Domain.Services;
 using GroceryStoreAPI.Domain.Model;
 using GroceryStoreAPI.Domain.Repositories;
-using System;
 using System.Collections.Generic;
 using GroceryStoreAPI.Persistence;
 using GroceryStoreAPI.Services;
