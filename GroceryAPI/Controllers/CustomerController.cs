@@ -1,4 +1,4 @@
-
+﻿
 using System.Threading.Tasks;
 using GroceryStoreAPI.Domain.Model;
 using GroceryStoreAPI.Domain.Services;
@@ -12,16 +12,16 @@ namespace GroceryStoreAPI.Controllers
     [Route(AppConstants.ApiCustomersRoute)]
     [Produces(AppConstants.ProducesType)]
     [ApiController]
-    public class CustomersController: Controller
+    public class CustomersController : Controller
     {
         private readonly ICustomerService _customerService;
         public CustomersController(ICustomerService customerService)
         {
-            _customerService=customerService;
+            _customerService = customerService;
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(CustomersResponse),200)]
+        [ProducesResponseType(typeof(CustomersResponse), 200)]
         [ProducesResponseType(typeof(CustomersResponse), 400)]
         public async Task<IActionResult> ListAsync()
         {
@@ -45,35 +45,35 @@ namespace GroceryStoreAPI.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(CustomerResponse),200)]
-        [ProducesResponseType(typeof(CustomerResponse),400)]
+        [ProducesResponseType(typeof(CustomerResponse), 200)]
+        [ProducesResponseType(typeof(CustomerResponse), 400)]
         public async Task<IActionResult> PostAsync([FromBody] Customer resource)
         {
             CustomerResponse result = await Task.Run(() => _customerService.Save(resource));
-            if(!result.Success)
+            if (!result.Success)
                 return BadRequest(result);
             return Ok(result);
         }
 
         [HttpPut(AppConstants.CustomerID)]
-        [ProducesResponseType(typeof(CustomerResponse),200)]
-        [ProducesResponseType(typeof(CustomerResponse),400)]
+        [ProducesResponseType(typeof(CustomerResponse), 200)]
+        [ProducesResponseType(typeof(CustomerResponse), 400)]
         public async Task<IActionResult> PutAsync(int id, [FromBody] Customer resource)
         {
             CustomerResponse result = await Task.Run(() => _customerService.Update(id, resource));
-            if(!result.Success)
+            if (!result.Success)
                 return BadRequest(result);
-            else 
+            else
                 return Ok(result);
         }
 
         [HttpDelete(AppConstants.CustomerID)]
-        [ProducesResponseType(typeof(CustomerResponse),200)]
-        [ProducesResponseType(typeof(CustomerResponse),400)]
+        [ProducesResponseType(typeof(CustomerResponse), 200)]
+        [ProducesResponseType(typeof(CustomerResponse), 400)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             CustomerResponse result = await Task.Run(() => _customerService.Delete(id));
-            if(!result.Success)
+            if (!result.Success)
                 return BadRequest(result);
             else
                 return Ok(result);
